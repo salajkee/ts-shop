@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.button {
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: $primary;
+  cursor: pointer;
+  border: 1px solid $grayLight;
+  border-radius: 4px;
+  background-color: $white;
+
+  &.fill {
+    color: $white;
+    border: none;
+    background-color: $primary;
+  }
+}

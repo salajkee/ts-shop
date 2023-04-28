@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: primary;
+    border: 1px solid $primary;
+
+    &.active {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+
+.header__fav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  &-text {
+    margin-top: 8px;
+    font-size: 14px;
+    color: $primary;
+  }
+
+  &-count {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    padding: 2px 4px;
+    font-size: 13px;
+    color: $white;
+    text-align: center;
+    border-radius: 5px;
+    background-color: $primary;
+  }
+}

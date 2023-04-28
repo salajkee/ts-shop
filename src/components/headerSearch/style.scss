@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.header__search {
+  width: 375px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid $primary;
+  border-radius: 4px;
+
+  &-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: $primary;
+
+    &::placeholder {
+      color: $grayHard;
+    }
+  }
+
+  &-label {
+    margin-left: 10px;
+  }
+}
