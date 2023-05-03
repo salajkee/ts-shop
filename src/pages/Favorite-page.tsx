@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import ProductItem from '../components/productItem/ProductItem';
 import { ProductsType, ProductType } from '../types/products';
 
@@ -12,6 +13,7 @@ const FavoritePage = ({ fav, addCart, toggleFav }: FavoritePageProps) => {
   if (fav.length > 0) {
     return (
       <main>
+        <Breadcrumbs />
         <div className="container">
           <h1 className="title">Избранные</h1>
           <div className="fav__list">

@@ -28,12 +28,14 @@ const Home = ({ products, addCart, toggleFav, fav }: HomeProps) => {
           toggleFav={toggleFav}
           fav={fav}
         />
-        <Pagination
-          totalPosts={products.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
+        {products.length < 13 ? null : (
+          <Pagination
+            totalPosts={products.length}
+            postsPerPage={postsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        )}
       </div>
     </main>
   );

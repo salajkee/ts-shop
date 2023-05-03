@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import Button from '../components/button/Button';
 import CartItem from '../components/cartItem/CartItem';
 import { ProductType, ProductsType } from '../types/products';
@@ -25,6 +26,7 @@ const CartPage = ({ removeCart, incrCart, decrCart }: CartPageProps) => {
   if (data.length > 0) {
     return (
       <main>
+        <Breadcrumbs />
         <div className="container">
           <h1 className="title">Корзина покупок</h1>
           <div className="cart__wrapper">

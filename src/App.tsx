@@ -21,6 +21,7 @@ function App() {
   const [fav, setFav] = useState<ProductsType>(
     favData ? JSON.parse(favData) : []
   );
+  const [filteredCatalog, setFilteredCatalog] = useState<ProductsType>([]);
 
   const toggleFav = (item: ProductType) => {
     const itemIndex = fav.findIndex((el) => el.id === item.id);
@@ -114,6 +115,14 @@ function App() {
     setCart(newCart);
   };
 
+  const handleSearch = (title: string) => {
+    setFilteredCatalog(
+      products.filter((item) =>
+        item.title.toLowerCase().includes(title.toLowerCase())
+      )
+    );
+  };
+
   useEffect(() => {
     localStorage.setItem('cartData', JSON.stringify(cart));
   }, [cart]);
@@ -128,10 +137,10 @@ function App() {
       const data = response.data.map((el: any) => {
         return {
           ...el,
-          favorite: false,
         };
       });
       setProducts(data);
+      setFilteredCatalog(data);
     };
 
     fetchData(`https://api.escuelajs.co/api/v1/products/?offset=0&limit=120`);
@@ -139,13 +148,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header cartQuantity={cart.length} favQuantity={fav.length} />
+      <Header
+        cartQuantity={cart.length}
+        favQuantity={fav.length}
+        handleSearch={handleSearch}
+      />
       <Routes>
         <Route
           path="/"
           element={
             <Home
-              products={products}
+              products={filteredCatalog}
               addCart={addCart}
               toggleFav={toggleFav}
               fav={fav}

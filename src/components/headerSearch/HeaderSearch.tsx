@@ -1,18 +1,37 @@
+import { useState } from 'react';
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 import './style.scss';
 
-const HeaderSearch = () => {
+interface HeaderSearchProps {
+  handleSearch: (title: string) => void;
+}
+
+const HeaderSearch = ({ handleSearch }: HeaderSearchProps) => {
+  const [value, setValue] = useState('');
+
+  const handleSubmit = () => {
+    handleSearch(value);
+  };
+
+  const handleKeyPress = (e: any) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
   return (
     <div className="header__search">
       <input
         className="header__search-input"
-        type="text"
-        name="search"
+        type="search"
         placeholder="Найти товар"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onKeyPress={handleKeyPress}
       />
-      <label className="header__search-label" htmlFor="search">
+      <button className="header__search-btn" onClick={handleSubmit}>
         <SearchIcon />
-      </label>
+      </button>
     </div>
   );
 };

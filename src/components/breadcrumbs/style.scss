@@ -1,0 +1,21 @@
+.breadcrumbs {
+  margin-bottom: 20px;
+  &__list {
+    padding-left: 0;
+    display: flex;
+  }
+  &__link {
+    margin-right: 10px;
+    font-size: 14px;
+    color: var(--gray);
+    user-select: none;
+    a {
+      color: var(--primaryBlack);
+      &::after {
+        content: '/';
+        position: relative;
+        left: 6px;
+      }
+    }
+  }
+}

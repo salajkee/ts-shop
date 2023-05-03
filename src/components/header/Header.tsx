@@ -8,9 +8,10 @@ import './style.scss';
 interface HeaderProps {
   cartQuantity: number;
   favQuantity: number;
+  handleSearch: (title: string) => void;
 }
 
-const Header = ({ cartQuantity, favQuantity }: HeaderProps) => {
+const Header = ({ cartQuantity, favQuantity, handleSearch }: HeaderProps) => {
   return (
     <header className="header">
       <div className="container">
@@ -19,7 +20,7 @@ const Header = ({ cartQuantity, favQuantity }: HeaderProps) => {
             React Shop
           </Link>
           <div className="header__inner">
-            <HeaderSearch />
+            <HeaderSearch handleSearch={handleSearch} />
             <HeaderFav favQuantity={favQuantity} />
             <HeaderCart cartQuantity={cartQuantity} />
             <button className="header__login">
